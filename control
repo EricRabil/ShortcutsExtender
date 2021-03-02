@@ -1,0 +1,9 @@
+Package: com.ericrabil.shortcuts-extender
+Name: ShortcutsExtender
+Depends: mobilesubstrate, firmware (>= 14.0)
+Version: 1.0.0
+Architecture: iphoneos-arm
+Description: Customize your Shortcuts experience.
+Maintainer: Eric Rabil <ericjrabil@gmail.com>
+Author: Eric Rabil <ericjrabil@gmail.com>
+Section: Tweaks
