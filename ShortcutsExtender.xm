@@ -57,8 +57,12 @@
 @interface WFTimeOfDayTrigger: WFTrigger
 @end;
 
+@interface WFWifiTrigger: WFTrigger
+@end;
+
 BOOL isRateLimitingDisabled(WFAction* action) {
-	return [[action identifier] isEqualToString:@"is.workflow.actions.sendmessage"];
+	// return [[action identifier] isEqualToString:@"is.workflow.actions.sendmessage"];
+	return YES;
 }
 
 BOOL shouldAllAutomationsAllowBackgroundRun() {
@@ -161,6 +165,11 @@ BOOL shouldAllAutomationsAllowBackgroundRun() {
 }
 %end
 %hook WFTimeOfDayTrigger
++ (BOOL)isAllowedToRunAutomatically {
+	return shouldAllAutomationsAllowBackgroundRun() ? YES : %orig;
+}
+%end
+%hook WFWifiTrigger
 + (BOOL)isAllowedToRunAutomatically {
 	return shouldAllAutomationsAllowBackgroundRun() ? YES : %orig;
 }
